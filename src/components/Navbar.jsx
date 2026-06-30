@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import ThemeToggle from './ThemeToggle.jsx'
 import wslLogo from '../assets/wsl.png'
-import resumePdf from '../assets/resume.pdf'
+
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
@@ -281,7 +281,7 @@ function DownloadButton({ scrolled }) {
 
   const triggerDownload = useCallback(() => {
     const link = document.createElement('a')
-    link.href = resumePdf
+    link.href = 'https://drive.google.com/file/d/18tSnWM1Pm8hQ-pkKCdIM1hCoWu94q5D0/view?usp=drive_link'
     link.download = 'Warda-Shahid-Resume.pdf'
     document.body.appendChild(link)
     link.click()
