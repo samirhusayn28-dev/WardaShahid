@@ -574,7 +574,7 @@ export default function Hero() {
               }}
             >
               <img
-                src="/src/assets/chandelier.png"
+               src={chandelierImg}
                 alt=""
                 className="w-full h-full object-contain select-none"
                 style={{
