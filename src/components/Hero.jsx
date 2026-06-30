@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef, memo } from 'react'
 import { useTheme } from '../context/ThemeContext.jsx'
+import chandelierImg from '../assets/chandelier.png'
 
 const SUBTITLE_LINES = [
   { text: 'sketch artist', duration: 1800 },
@@ -517,7 +518,7 @@ export default function Hero() {
             }}
           >
             <img
-              src="/src/assets/chandelier.png"
+            src={chandelierImg}
               alt=""
               className="w-full h-full object-contain pointer-events-none select-none"
               style={{
