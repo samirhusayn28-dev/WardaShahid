@@ -1,0 +1,175 @@
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=IM+Fell+English:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+ html {
+  scroll-behavior: smooth;
+  background-color: #393E46;
+  color: #EEEEEE;
+  transition: background-color .35s ease, color .35s ease;
+}
+
+html.dark {
+  background-color: #2C2E30;
+  color: #F0F2F4;
+}
+
+html.light {
+  background-color: #F0F2F4;
+  color: #2C2E30;
+}
+
+  body {
+    background-color: inherit;
+    color: inherit;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    transition: background-color .35s ease, color .35s ease;
+  }
+
+  #root {
+    background-color: inherit;
+    color: inherit;
+    min-height: 100vh;
+    transition: inherit;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #F0F2F4; }
+  html.dark ::-webkit-scrollbar-track { background: #2C2E30; }
+  ::-webkit-scrollbar-thumb { background: #2C2E30; border-radius: 10px; }
+  html.dark ::-webkit-scrollbar-thumb { background: #F0F2F4; }
+  ::-webkit-scrollbar-thumb:hover { background: #1a1c1e; }
+  html.dark ::-webkit-scrollbar-thumb:hover { background: #ffffff; }
+
+  ::selection { background: #C8CACC; color: #2C2E30; }
+  html.dark ::selection { background: #4A4C4E; color: #F0F2F4; }
+}
+
+@layer utilities {
+  .text-3d-black {
+    color: #2C2E30;
+    text-shadow:
+      1px 1px 0 rgba(255,255,255,.8),
+      2px 2px 0 rgba(255,255,255,.6),
+      3px 3px 0 rgba(255,255,255,.4),
+      4px 4px 8px rgba(0,0,0,.1);
+  }
+
+  html.dark .text-3d-black {
+    color: #F0F2F4;
+    text-shadow:
+      1px 1px 0 rgba(0,0,0,.8),
+      2px 2px 0 rgba(0,0,0,.7),
+      3px 3px 0 rgba(0,0,0,.6),
+      4px 4px 8px rgba(0,0,0,.45);
+  }
+
+  .text-3d-gold {
+    color: #2C2E30;
+    text-shadow:
+      1px 1px 0 #b0b2b4,
+      2px 2px 0 #909294,
+      3px 3px 0 #707274,
+      4px 4px 8px rgba(44,46,48,.2);
+  }
+
+  html.dark .text-3d-gold {
+    color: #F0F2F4;
+    text-shadow:
+      1px 1px 0 #d9d9d9,
+      2px 2px 0 #bfbfbf,
+      3px 3px 0 #9f9f9f,
+      4px 4px 8px rgba(240,242,244,.25);
+  }
+
+  .heading-3d {
+    color: #2C2E30;
+    text-shadow:
+      1px 1px 0 rgba(255,255,255,.8),
+      2px 2px 0 rgba(255,255,255,.6),
+      3px 3px 0 rgba(255,255,255,.4),
+      4px 4px 8px rgba(0,0,0,.1);
+  }
+
+  html.dark .heading-3d {
+    color: #F0F2F4;
+    text-shadow:
+      1px 1px 0 #d9d9d9,
+      2px 2px 0 #bfbfbf,
+      3px 3px 6px rgba(240,242,244,.3);
+  }
+
+  .gothic-divider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: currentColor;
+  }
+  .gothic-divider::before,
+  .gothic-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.35;
+    box-shadow: 0 2px 0 currentColor;
+  }
+
+  .gothic-frame {
+    outline: 1px solid currentColor;
+    outline-offset: 4px;
+    border: 1px solid currentColor;
+  }
+
+  .drop-cap::first-letter {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 3.8em;
+    line-height: 0.75;
+    float: left;
+    margin-right: 8px;
+    margin-top: 6px;
+    color: inherit;
+  }
+
+  .gothic-heading {
+    font-family: 'Cinzel Decorative', serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .gothic-vignette { position: relative; }
+  .gothic-vignette::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.65) 100%);
+    pointer-events: none;
+  }
+
+  .surface-3d {
+    background: #E2E4E6;
+    box-shadow:
+      0 1px 0 rgba(0,0,0,.05),
+      0 2px 0 rgba(0,0,0,.04),
+      0 8px 20px rgba(0,0,0,.12);
+  }
+
+  html.dark .surface-3d {
+    background: #383A3C;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.05),
+      0 2px 0 rgba(255,255,255,.04),
+      0 8px 20px rgba(0,0,0,.55);
+  }
+}
