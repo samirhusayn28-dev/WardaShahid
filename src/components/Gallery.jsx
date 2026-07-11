@@ -10,8 +10,6 @@ const artworks = [
   { src: 'https://i.pinimg.com/736x/d9/bf/8f/d9bf8fc08beb41c0b50505c75beccc4f.jpg' },
 ]
 
-{ src: 'https://pin.it/3TI0L7u0P' },
-]
 
 const GAP = 8
 
