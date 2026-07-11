@@ -74,7 +74,7 @@ const buildCss = () => `
   }
   .ct-sketch {
     width: 100%;
-    max-width: 340px;
+    max-width: 220px;
     margin-bottom: 40px;
     opacity: 0.88;
   }
@@ -83,6 +83,10 @@ const buildCss = () => `
     height: auto;
     display: block;
     filter: sepia(0.12) contrast(0.95);
+    transition: filter 0.3s ease;
+  }
+  .dark .ct-sketch img {
+    filter: invert(1) brightness(1.1);
   }
 
   /* contact info — desktop */
@@ -359,7 +363,7 @@ const buildCss = () => `
   @media (max-width: 860px) {
     .ct-section { padding: 60px 32px 80px; }
     .ct-inner   { grid-template-columns: 1fr; gap: 48px; }
-    .ct-sketch  { max-width: 260px; }
+    .ct-sketch  { max-width: 180px; }
     .ct-row     { grid-template-columns: 1fr; }
     .ct-card    { padding: 28px; }
   }
@@ -370,7 +374,7 @@ const buildCss = () => `
     .ct-inner   { gap: 36px; }
     .ct-heading { font-size: clamp(1.25rem, 6vw, 1.6rem); margin-bottom: 14px; }
     .ct-desc    { font-size: 14px; margin-bottom: 24px; max-width: 100%; }
-    .ct-sketch  { max-width: 200px; margin-bottom: 24px; }
+    .ct-sketch  { max-width: 140px; margin-bottom: 24px; }
 
     /* hide normal info list, show bento */
     .ct-info-grid  { display: none; }
