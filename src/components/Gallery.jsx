@@ -8,6 +8,7 @@ const artworks = [
   { src: 'https://i.pinimg.com/736x/e6/b9/d4/e6b9d40c5ecf2f92892f6a262935e400.jpg' },
   { src: 'https://i.pinimg.com/736x/56/d1/4b/56d14b480414ea954485264236d7a47a.jpg' },
   { src: 'https://i.pinimg.com/736x/d9/bf/8f/d9bf8fc08beb41c0b50505c75beccc4f.jpg' },
+  { src: 'https://i.pinimg.com/736x/3f/c8/bc/3fc8bc4f41dff70b8fddfcce3872b89f.jpg' },
 ]
 
 const GAP = 8
@@ -26,42 +27,42 @@ function toPixelRect({c,r,cw,rh}, cellW, cellH) {
 }
 
 const LAYOUTS = [
-  makeLayout(12, 5, [
-    [0, 0,  8, 3], [8, 0,  4, 2], [8, 2,  4, 1],
-    [0, 3,  3, 2], [3, 3,  3, 2], [6, 3,  3, 2], [9, 3,  3, 2],
+  makeLayout(12, 6, [
+    [0, 0, 7, 3], [7, 0, 5, 2], [7, 2, 3, 1], [10, 2, 2, 1],
+    [0, 3, 3, 3], [3, 3, 3, 3], [6, 3, 3, 3], [9, 3, 3, 3],
   ]),
-  makeLayout(12, 5, [
-    [0,  0, 12, 2], [0,  2,  4, 3], [4,  2,  4, 2],
-    [8,  2,  4, 2], [4,  4,  2, 1], [6,  4,  3, 1], [9,  4,  3, 1],
+  makeLayout(12, 6, [
+    [0,  0, 12, 2], [0,  2,  4, 2], [4,  2,  4, 2],
+    [8,  2,  4, 2], [0,  4,  3, 2], [3,  4,  3, 2], [6,  4,  3, 2], [9,  4,  3, 2],
   ]),
-  makeLayout(12, 5, [
+  makeLayout(12, 6, [
     [0,  0,  5, 4], [5,  0,  4, 2], [9,  0,  3, 2],
-    [5,  2,  4, 2], [9,  2,  3, 2], [0,  4,  6, 1], [6,  4,  6, 1],
+    [5,  2,  4, 2], [9,  2,  3, 2], [0,  4,  4, 2], [4,  4,  4, 2], [8,  4,  4, 2],
   ]),
-  makeLayout(12, 5, [
-    [0,  0,  3, 2], [3,  0,  6, 3], [9,  0,  3, 2],
-    [0,  2,  3, 3], [9,  2,  3, 3], [3,  3,  3, 2], [6,  3,  3, 2],
+  makeLayout(12, 6, [
+    [0,  0,  3, 3], [3,  0,  6, 3], [9,  0,  3, 3],
+    [0,  3,  3, 3], [9,  3,  3, 3], [3,  3,  2, 3], [5,  3,  2, 3], [7,  3,  2, 3],
   ]),
 ]
 
 const MLAYOUTS = [
   makeLayout(6, 8, [
     [0, 0, 6, 2], [0, 2, 3, 2], [3, 2, 3, 2],
-    [0, 4, 3, 2], [3, 4, 3, 2], [0, 6, 3, 2], [3, 6, 3, 2],
+    [0, 4, 3, 2], [3, 4, 3, 2], [0, 6, 2, 2], [2, 6, 2, 2], [4, 6, 2, 2],
   ]),
   makeLayout(6, 8, [
     [0, 0, 3, 2], [3, 0, 3, 2], [0, 2, 6, 2],
-    [0, 4, 3, 2], [3, 4, 3, 2], [0, 6, 3, 2], [3, 6, 3, 2],
+    [0, 4, 3, 2], [3, 4, 3, 2], [0, 6, 2, 2], [2, 6, 2, 2], [4, 6, 2, 2],
   ]),
   makeLayout(6, 8, [
     [0, 0, 3, 4], [3, 0, 3, 2], [3, 2, 3, 2],
-    [0, 4, 3, 2], [3, 4, 3, 2], [0, 6, 3, 2], [3, 6, 3, 2],
+    [0, 4, 3, 2], [3, 4, 3, 2], [0, 6, 2, 2], [2, 6, 2, 2], [4, 6, 2, 2],
   ]),
 ]
 
 const PAIRS = [
-  [0,1],[1,2],[2,3],[3,4],[4,5],[5,6],
-  [0,3],[1,4],[2,5],[3,6],[0,6],[1,5],
+  [0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],
+  [0,3],[1,4],[2,5],[3,6],[4,7],[0,6],[1,5],[2,7],
 ]
 
 const css = `
@@ -224,8 +225,8 @@ export default function Gallery() {
   const [cellW, setCellW]       = useState(0)
   const [cellH, setCellH]       = useState(0)
   const [gridH, setGridH]       = useState(0)
-  const [visible, setVisible]   = useState(Array(7).fill(false))
-  const [assignments, setAssignments] = useState([0,1,2,3,4,5,6])
+  const [visible, setVisible]   = useState(Array(8).fill(false))
+  const [assignments, setAssignments] = useState([0,1,2,3,4,5,6,7])
   const pairCursor = useRef(0)
   const gridRef    = useRef(null)
   const cardRefs   = useRef([])
@@ -253,10 +254,10 @@ export default function Gallery() {
       setGridH(Math.round(8 * cHpx + 7 * GAP))
     } else {
       const cWpx = (cw - GAP * 11) / 12
-      const cHpx = cWpx * 1.55
+      const cHpx = cWpx * 1.3
       setCellW(cWpx)
       setCellH(cHpx)
-      setGridH(Math.round(5 * cHpx + 4 * GAP))
+      setGridH(Math.round(6 * cHpx + 5 * GAP))
     }
   }, [])
 
