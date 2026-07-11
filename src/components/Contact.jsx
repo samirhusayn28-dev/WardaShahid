@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react'
 import emailjs from '@emailjs/browser'
+import contactSketch from '../assets/contact-sketch.png'
 
 /* ────────────────────────────────────────
    EmailJS config
@@ -584,7 +585,7 @@ export default function Contact() {
           </p>
 
           <div className="ct-sketch">
-            <img src="/src/assets/contact-sketch.png" alt="pencil sketch" loading="lazy" />
+            <img src={contactSketch} alt="pencil sketch" loading="lazy" />
           </div>
 
           {/* Desktop info list */}
