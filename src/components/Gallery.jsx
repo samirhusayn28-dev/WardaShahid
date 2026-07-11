@@ -11,6 +11,7 @@ const artworks = [
   { src: 'https://i.pinimg.com/736x/3f/c8/bc/3fc8bc4f41dff70b8fddfcce3872b89f.jpg' },
 ]
 
+
 const GAP = 8
 
 function makeLayout(cols, rows, defs) {
